@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Neeta Chillore - FrontEnd Developer</title>
+  <meta name="description" content="Portfolio of Neeta Chillore, FrontEnd Developer">
+  <meta name="keywords" content="FrontEnd Developer, Web Developer, Portfolio">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- GSAP for advanced animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom Animation CSS -->
+  <style>
+    /* Hero image animation */
+    .hero img {
+      opacity: 0;
+      transform: scale(1.1);
+      will-change: transform, opacity;
+    }
+    
+    /* Hero content animation */
+    .hero-content h2, 
+    .hero-content p, 
+    .hero-content .btn-get-started {
+      opacity: 0;
+      transform: translateY(30px);
+      will-change: transform, opacity;
+    }
+    
+    /* Navigation hover effects */
+    .navmenu ul li a {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .navmenu ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    
+    .navmenu ul li a:hover::after {
+      width: 100%;
+    }
+    
+    /* Button animation */
+    .btn-get-started {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      transform-style: preserve-3d;
+    }
+    
+    .btn-get-started::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn-get-started:hover::before {
+      left: 100%;
+    }
+    
+    /* Scroll top button animation */
+    #scroll-top {
+      transition: all 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    #scroll-top.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    #scroll-top:hover {
+      transform: translateY(-5px) !important;
+    }
+    
+    /* Header animation */
+    #header {
+      transform: translateY(-20px);
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top" style="--nav-text-color: white !important;">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+      </a>
+
+      <nav id="navmenu" class="navmenu" style="--nav-text-color: white !important;">
+        <ul>
+          <li><a href="index.html" class="active" style="color: white !important;">Home</a></li>
+          <li><a href="about.html" style="color: white !important;">About</a></li>
+          <li><a href="resume.html" style="color: white !important;">Resume</a></li>
+          <li><a href="contact.html" style="color: white !important;">Contact</a></li>
+           <li><a href="project.html" style="color: white !important;">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <img src="assets/img/1000344323-01.jpeg" alt="Neeta Chillore" class="hero-image">
+
+      <div class="container text-center hero-content">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2>Neeta Chillore</h2>
+            <p>FrontEnd Developer</p>
+            <a href="about.html" class="btn-get-started">About Me</a>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+
+      // Header animation
+      gsap.to("#header", {
+        duration: 1,
+        y: 0,
+        opacity: 1,
+        ease: "power3.out",
+        delay: 0.3
+      });
+
+      // Hero image animation
+      gsap.to(".hero img", {
+        duration: 1.5,
+        scale: 1,
+        opacity: 1,
+        ease: "power3.out",
+        delay: 0.5
+      });
+
+      // Hero content animation
+      const heroElements = gsap.utils.toArray(".hero-content h2, .hero-content p, .hero-content .btn-get-started");
+      heroElements.forEach((el, i) => {
+        gsap.to(el, {
+          duration: 1,
+          y: 0,
+          opacity: 1,
+          ease: "back.out(1.7)",
+          delay: 0.8 + (i * 0.2)
+        });
+      });
+
+      // Scroll top button animation
+      window.addEventListener('scroll', function() {
+        const scrollTop = document.getElementById('scroll-top');
+        if (window.pageYOffset > 300) {
+          scrollTop.classList.add('active');
+        } else {
+          scrollTop.classList.remove('active');
+        }
+      });
+
+      // Navigation hover effects
+      document.querySelectorAll(".navmenu ul li a").forEach(link => {
+        link.addEventListener("mouseenter", () => {
+          gsap.to(link, {
+            duration: 0.3,
+            y: -3,
+            ease: "power2.out"
+          });
+        });
+        link.addEventListener("mouseleave", () => {
+          gsap.to(link, {
+            duration: 0.3,
+            y: 0,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: this.getAttribute('href'),
+            ease: "power3.inOut"
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Neeta Chillore - Projects</title>
+  <meta name="description" content="Front-End Developer Projects">
+  <meta name="keywords" content="React Developer, Frontend Developer, JavaScript">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2D3748;
+      --secondary: #4A5568;
+      --accent: #667EEA;
+      --text-primary: #1A202C;
+      --text-secondary: #718096;
+      --text-muted: #A0AEC0;
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F7FAFC;
+      --bg-tertiary: #EDF2F7;
+      --border: #E2E8F0;
+      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Custom styles for projects while maintaining resume page structure */
+    body {
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+
+    /* Animated Background */
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.03;
+    }
+
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--accent), var(--primary));
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .floating-shape:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-shape:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 60%;
+      right: 10%;
+      animation-delay: 5s;
+    }
+
+    .floating-shape:nth-child(3) {
+      width: 100px;
+      height: 100px;
+      bottom: 20%;
+      left: 60%;
+      animation-delay: 10s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      33% {
+        transform: translateY(-30px) rotate(120deg);
+      }
+      66% {
+        transform: translateY(30px) rotate(240deg);
+      }
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: var(--bg-primary);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+      animation: cardSlideIn 0.8s ease forwards;
+      height: 320px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      will-change: transform;
+      margin-bottom: 2rem;
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .project-card:nth-child(3) { animation-delay: 0.3s; }
+    .project-card:nth-child(4) { animation-delay: 0.4s; }
+    .project-card:nth-child(5) { animation-delay: 0.5s; }
+    .project-card:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes cardSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s ease;
+      z-index: 2;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(103, 126, 234, 0.1), rgba(45, 55, 72, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--accent);
+    }
+
+    .project-card:hover::before {
+      left: 100%;
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+    }
+
+    .project-card-content {
+      position: relative;
+      z-index: 3;
+      padding: 1.5rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-card-content {
+      transform: translateY(-5px);
+    }
+    
+    .project-card-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .project-card-meta {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    
+    .project-card-meta i {
+      margin-right: 8px;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+    
+    .project-card-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      font-size: 0.9rem;
+      flex-grow: 1;
+    }
+    
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tech-tag {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .tech-tag:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-card:hover .tech-tag:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:hover .tech-tag:nth-child(2) { animation-delay: 0.15s; }
+    .project-card:hover .tech-tag:nth-child(3) { animation-delay: 0.2s; }
+    .project-card:hover .tech-tag:nth-child(4) { animation-delay: 0.25s; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .project-card {
+        height: auto;
+        min-height: 280px;
+        margin-bottom: 1.5rem;
+      }
+      
+      .project-card-content {
+        padding: 1.2rem;
+      }
+    }
+
+    /* Scroll Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-tertiary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="resume-page">
+
+  <!-- Animated Background -->
+  <div class="background-animation">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+  </div>
+
+  <header id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Neeta</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="project.html" class="active">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://linkedin.com/in/neeta-chillore-907a64337" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Projects Section -->
+    <section id="projects" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Projects</h2>
+        <p>"A selection of real-world web apps highlighting clean UI, responsive design, and practical problem-solving using modern tech stacks."</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card">
+              <div class="project-card-content">
+                <h3 class="project-card-title">Fixed Asset Management</h3>
+                <div class="project-card-meta">
+                  <i class="bi bi-building"></i> Aigutech Technology
+                </div>
+                <p class="project-card-description">
+                  Built a dynamic web app for managing hospital and IT assets, with features like tracking, categorization, depreciation, and role-based access. Designed for real-time updates and scalable performance.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Material UI</span>
+                  <span class="tech-tag">Tailwind</span>
+                  <span class="tech-tag">State Mgmt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card">
+              <div class="project-card-content">
+                <h3 class="project-card-title">YouTube Clone</h3>
+                <div class="project-card-meta">
+                  <i class="bi bi-building"></i> Aigutech Technology
+                </div>
+                <p class="project-card-description">
+                  A sophisticated YouTube interface replica featuring advanced search functionality, dynamic video cards, and seamless API integration with intelligent debouncing for optimal performance.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Tailwind</span>
+                  <span class="tech-tag">YouTube API</span>
+                  <span class="tech-tag">Debounce</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-card">
+              <div class="project-card-content">
+                <h3 class="project-card-title">Resume Builder</h3>
+                <div class="project-card-meta">
+                  <i class="bi bi-person-workspace"></i> Personal Project
+                </div>
+                <p class="project-card-description">
+                  An intelligent resume builder with advanced form validation and PDF generation capabilities. Features adaptive form logic that responds dynamically to user input patterns.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">React Hook Form</span>
+                  <span class="tech-tag">PDF Gen</span>
+                  <span class="tech-tag">Validation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="project-card">
+              <div class="project-card-content">
+                <h3 class="project-card-title">HRMS System</h3>
+                <div class="project-card-meta">
+                  <i class="bi bi-mortarboard"></i> Academic Project
+                </div>
+                <p class="project-card-description">
+                  A robust Human Resource Management System with secure employee authentication and comprehensive data validation logic using Java Swing framework for desktop deployment.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Java</span>
+                  <span class="tech-tag">Swing</span>
+                  <span class="tech-tag">Validation</span>
+                  <span class="tech-tag">Authentication</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="project-card">
+              <div class="project-card-content">
+                <h3 class="project-card-title">Recipe Hunt</h3>
+                <div class="project-card-meta">
+                  <i class="bi bi-person-workspace"></i> Personal Project
+                </div>
+                <p class="project-card-description">
+                  An intuitive recipe discovery application with advanced filtering capabilities, robust error handling, and seamless API integration for comprehensive culinary exploration.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">API Integration</span>
+                  <span class="tech-tag">Error Handling</span>
+                  <span class="tech-tag">Filtering</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="project-card">
+              <div class="project-card-content">
+                <h3 class="project-card-title">Portfolio Website</h3>
+                <div class="project-card-meta">
+                  <i class="bi bi-person-workspace"></i> Personal Project
+                </div>
+                <p class="project-card-description">
+                  A professional personal branding website showcasing technical skills, project portfolio, and career achievements with fully responsive design and modern animations.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">HTML5</span>
+                  <span class="tech-tag">CSS3</span>
+                  <span class="tech-tag">Bootstrap</span>
+                  <span class="tech-tag">Javascript</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Projects Section -->
+
+  </main>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Enhanced card interactions with proper state management
+      const cards = document.querySelectorAll('.project-card');
+      
+      cards.forEach(card => {
+        let isHovered = false;
+        let animationId = null;
+        
+        card.addEventListener('mouseenter', (e) => {
+          isHovered = true;
+          
+          // Stagger tech tag animations
+          const techTags = card.querySelectorAll('.tech-tag');
+          techTags.forEach((tag, index) => {
+            setTimeout(() => {
+              if (isHovered) { // Only animate if still hovered
+                tag.style.transform = 'translateY(-2px)';
+              }
+            }, index * 100);
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          isHovered = false;
+          
+          // Reset tech tags
+          const techTags = card.querySelectorAll('.tech-tag');
+          techTags.forEach(tag => {
+            tag.style.transform = 'translateY(0)';
+          });
+          
+          // Cancel any pending animations
+          if (animationId) {
+            cancelAnimationFrame(animationId);
+          }
+        });
+
+        // Smooth magnetic effect based on mouse position
+        card.addEventListener('mousemove', (e) => {
+          if (!isHovered) return;
+          
+          const rect = card.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const deltaX = e.clientX - centerX;
+          const deltaY = e.clientY - centerY;
+          
+          const rotateX = Math.max(-5, Math.min(5, (deltaY / (rect.height / 2)) * 3));
+          const rotateY = Math.max(-5, Math.min(5, (deltaX / (rect.width / 2)) * -3));
+          
+          animationId = requestAnimationFrame(() => {
+            if (isHovered) {
+              card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            }
+          });
+        });
+
+        // Click ripple effect
+        card.addEventListener('click', function(e) {
+          const ripple = document.createElement('div');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(103, 126, 234, 0.3);
+            transform: scale(0);
+            animation: ripple 0.8s ease-out;
+            left: ${x}px;
+            top: ${y}px;
+            width: ${size}px;
+            height: ${size}px;
+            pointer-events: none;
+            z-index: 5;
+          `;
+          
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 800);
+        });
+      });
+
+      // Parallax effect for background shapes
+      let ticking = false;
+      
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.floating-shape');
+            
+            shapes.forEach((shape, index) => {
+              const speed = 0.3 + (index * 0.1);
+              shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.05}deg)`;
+            });
+            
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Add ripple animation styles
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes ripple {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+
+</body>
+
+</html>
